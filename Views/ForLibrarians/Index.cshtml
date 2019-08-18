@@ -1,0 +1,85 @@
+﻿@model IEnumerable<LibraryManagementWithAuthen.Models.Book>
+
+@{
+    ViewData["Title"] = "Library Database";
+}
+
+<h1>Library Database</h1>
+<p> The librarian will be able to see the list of rented books and add a new book to database </p>
+<p>
+    <button type="button" class="btn-primary" onclick="location.href='@Url.Action("Create", "ForLibrarians")'">
+        Add a new textbook
+    </button>
+
+    <button type="button" class="btn-primary" onclick="location.href='@Url.Action("Index", "RentedBooks")'">
+        List of Rented TextBooks
+    </button>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Edition
+            </th>
+            <th>
+                ISBN
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Public Date
+            </th>
+            <th>
+                Format
+            </th>
+            <th>
+                Number of Pages
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Format)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumofPages)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

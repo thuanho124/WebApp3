@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LibraryManagementWithAuthen.Models.RentedBook>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of rented books</h1>
+<a asp-action="Create">Issue a book</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RentedBookID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RentedBookID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RentedBookID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
