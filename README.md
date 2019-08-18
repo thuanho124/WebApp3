@@ -10,6 +10,12 @@
 * Check for overdue books and send an email to remind to student
 * Search the book by name, ISBN, or Author.
 
+#### If the database is not working or lost:
+* Go to appsettings.json and change the database's name to thuanLibDatabase5 (the cuurrent one is LibDatabase5).
+* Or change the name of database file to LibDatabase5.
+* The worst way: Please add some data through student, book, and rented books page.
+
+
 #### Some screenshots:
 Student page:
 
