@@ -2,6 +2,8 @@
 
 #### To login, please register as a new user first and then you need to use a new account to login (or it just redirects you to home page after you have signed up).
 
+#### There is no database initializer so you dont need to update database
+
 #### As a librarian:
 * Be able to do basic CRUD for students, and books
 * Be able to issue a book and see a list of rented books
